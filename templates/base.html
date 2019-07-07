@@ -1,41 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #3d0849;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  font-family: SourceSansPro-Bold;
-  font-size: 20px;
-  color: #fff;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  color: #fff;
-  background-color: #4b2354;
-}
-
-.active {
-  color: #fff;
-  background-color: #4b2354;
-}
-
-</style>
-
 <head>
   {% load static %}
 	<title>{% block title %} To-Do App {% endblock %}</title>
@@ -63,6 +28,40 @@ li a:hover {
 	<link rel="stylesheet" type="text/css" href="{% static "login/css/util.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static "login/css/main.css" %}">
 <!--===============================================================================================-->
+  <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #3d0849;
+    }
+    
+    li {
+      float: left;
+    }
+    
+    li a {
+      display: block;
+      font-family: SourceSansPro-Bold;
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    li a:hover {
+      color: #fff;
+      background-color: #4b2354;
+    }
+    
+    .active {
+      color: #fff;
+      background-color: #4b2354;
+    }
+    
+    </style>
 </head>
 
 <body>
@@ -82,6 +81,21 @@ li a:hover {
     {% endblock %}
 	</div>
 	<div id="dropDownSelect1"></div>
-
+<!--===============================================================================================-->
+<script src="{%static "login/vendor/jquery/jquery-3.2.1.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{%static "login/vendor/animsition/js/animsition.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{%static "login/vendor/bootstrap/js/popper.js" %}"></script>
+	<script src="{%static "login/vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{%static "login/vendor/select2/select2.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{%static "login/vendor/daterangepicker/moment.min.js" %}"></script>
+	<script src="{%static "login/vendor/daterangepicker/daterangepicker.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{%static "login/vendor/countdowntime/countdowntime.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{%static "login/js/main.js" %}"></script>
 </body>
 </html>

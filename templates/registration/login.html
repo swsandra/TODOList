@@ -4,13 +4,6 @@
 
 {% block content %}
 
-{% for message in messages %}
-<div class="alert alert-success">
-    <a class="close" href="#" data-dismiss="alert">×</a>
-    {{ message }}
-</div>
-{% endfor %}
-
 <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
     <form class="login100-form validate-form" method="post">
         {% csrf_token %}
@@ -19,12 +12,12 @@
         </span>
 
         <div class="wrap-input100 validate-input m-b-20" data-validate="Introduzca un username">
-            <input class="input100" type="text" name="username" placeholder="username">
+            <input class="input100" type="text" id="username" name="username" placeholder="username">
             <span class="focus-input100"></span>
         </div>
 
         <div class="wrap-input100 validate-input m-b-25" data-validate = "Introduzca una contraseña">
-            <input class="input100" type="password" name="password" placeholder="contraseña">
+            <input class="input100" type="password" id="password" name="password" placeholder="contraseña">
             <span class="focus-input100"></span>
         </div>
 
