@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %} {{ block.super }} - Login {% endblock %}
+{% block title %} {{ block.super }} - Sign Up {% endblock %}
 
 {% block content %}
-
 <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
     <form class="login100-form validate-form" method="post">
         {% csrf_token %}
         <span class="login100-form-title p-b-37">
-            Iniciar Sesión
+            Registro de Usuario
         </span>
 
         <div class="wrap-input100 validate-input m-b-20" data-validate="Introduzca un username">
@@ -17,23 +16,27 @@
         </div>
 
         <div class="wrap-input100 validate-input m-b-25" data-validate = "Introduzca una contraseña">
-            <input class="input100" type="password" id="password" name="password" placeholder="contraseña">
+            <input class="input100" type="password" id="password" name="password1" placeholder="contraseña">
+            <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input m-b-25" data-validate = "Repita su contraseña">
+            <input class="input100" type="password" id="password" name="password2" placeholder="repetir contraseña">
             <span class="focus-input100"></span>
         </div>
 
         <div class="container-login100-form-btn">
             <button class="login100-form-btn">
-                Iniciar sesión
+                Registrarse
             </button>
         </div>
 
         <div class="text-center">
-            <a href="{% url 'signup' %}" class="txt2 hov1">
-                Registrarse
+            <a href="{% url 'login' %}" class="txt2 hov1">
+                Iniciar Sesión
             </a>
         </div>
     </form>
 
     </div>
-
 {% endblock %}
