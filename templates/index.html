@@ -44,13 +44,28 @@
             <div class="table100-body js-pscroll">
                 <table>
                     <tbody>
-                        <tr class="row100 body">
-                            <td class="cell100 column1">Like a butterfly</td>
-                            <td class="cell100 column2">Boxing</td>
-                            <td class="cell100 column3">9:00 AM - 11:00 AM</td>
-                            <td class="cell100 column4">Aaron Chapman</td>
-                            <td class="cell100 column5">10</td>
+                        {% for todo in todo_list %}
+                        <tr class="row100 body">    
+                            <td class="cell100 column1">{{todo.title}}</td>
+                            <td class="cell100 column2">{{todo.description}}</td>
+                            <td class="cell100 column3">{{todo.creation_date}}</td>
+                            {% if todo.status %}
+                            <td class="cell100 column4">Completada</td>
+                            {% else %}
+                            <td class="cell100 column4">Pendiente
+                            <br><a href="{% url 'complete' todo.id %}" style="font-size:90%" class="txt2 hov1">
+                                Marcar como completada
+                            </a>
+                            </td>
+                            {% endif %}
+                            <td class="cell100 column5">
+                                <div class="container-login100-form-btn">
+                                <a href="{% url 'edit' todo.id %}" style="color:#fff" class="login100-form-btn">Editar</a>
+                                <a href="{% url 'delete' todo.id %}" style="color:#fff" class="login100-form-btn">Eliminar</a>
+                                </div>
+                            </td>
                         </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

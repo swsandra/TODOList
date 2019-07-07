@@ -66,3 +66,18 @@ def add_todo(request):
     else:
         form = TodoForm()
     return render(request, 'form.html', {'form': form})
+
+@login_required(login_url='/login/')
+def edit(request, todo_id):
+    todo = get_object_or_404(Todo, pk=todo_id)
+    return render(request, 'detail.html', {'todo': todo})
+
+@login_required(login_url='/login/')
+def delete(request, todo_id):
+    todo = get_object_or_404(Todo, pk=todo_id)
+    return render(request, 'detail.html', {'todo': todo})
+
+@login_required(login_url='/login/')
+def complete(request, todo_id):
+    todo = get_object_or_404(Todo, pk=todo_id)
+    return render(request, 'detail.html', {'todo': todo})
