@@ -82,4 +82,6 @@ def delete(request, todo_id):
 @login_required(login_url='/login/')
 def complete(request, todo_id):
     todo = get_object_or_404(Todo, pk=todo_id)
-    return render(request, 'detail.html', {'todo': todo})
+    todo.status = 1
+    todo.save()
+    return HttpResponseRedirect('/')
