@@ -3,6 +3,14 @@
 {% block title %} {{ block.super }} - Login {% endblock %}
 
 {% block content %}
+
+{% for message in messages %}
+<div class="alert alert-success">
+    <a class="close" href="#" data-dismiss="alert">×</a>
+    {{ message }}
+</div>
+{% endfor %}
+
 <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
     <form class="login100-form validate-form" method="post">
         {% csrf_token %}
@@ -32,7 +40,6 @@
             </a>
         </div>
     </form>
-
 
     </div>
 
