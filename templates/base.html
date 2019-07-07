@@ -68,12 +68,12 @@
   <ul>      
   {% if user.is_authenticated %}
     <li><a class="active" href="/"> Home </a></li>
-    <li><a href="/add">Agregar tarea</a></li>
-    <li style="float:right"><a href="/logout">Cerrar sesión</a></li>
+    <li><a href="{% url 'add' %}">Agregar tarea</a></li>
+    <li style="float:right"><a href="{% url 'logout' %}">Cerrar sesión</a></li>
     <li style="float:right"><a href="/"> {{ user.username }} </a></li>
   {% else %}
-    <li style="float:right"><a href="/login">Iniciar sesión</a></li>
-    <li style="float:right"><a href="/signup">Registrarse</a></li>
+    <li style="float:right"><a href="{% url 'login' %}">Iniciar sesión</a></li>
+    <li style="float:right"><a href="{% url 'signup' %}">Registrarse</a></li>
   {% endif %}
   </ul>
 	<div class="container-login100" style="background-image: url( '{%static "login/images/bg-01.jpg" %}' );">
