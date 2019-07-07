@@ -10,28 +10,38 @@ from .models import Todo
 from .forms import TodoForm
 
 # Create your views here.
-class sign_up(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'registration/signup.html'
-
-def login(request):
+def sign_up(request):
     if request.method == 'POST':
-        form = AuthenticationForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return HttpResponseRedirect('/')
-            else:
-                messages.error(request,'El usuario no existe.')
+            form.save()
+            messages.success(request, 'Cuenta creada, por favor inicie sesión.')
         else:
-            messages.error(request,'Usuario o contraseña incorrecta.')
+            for field in form:
+                for error in field.errors:
+                    err = '{}: {}'.format(field.label,error)
+                    messages.error(request,err)
     else:
-        form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form})
+        form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})
+
+# def login(request):
+#     if request.method == 'POST':
+#         form = AuthenticationForm(request.POST)
+#         if form.is_valid():
+#             username = form.cleaned_data.get('username')
+#             password = form.cleaned_data.get('password')
+#             user = authenticate(username=username, password=password)
+#             if user is not None:
+#                 login(request, user)
+#                 return HttpResponseRedirect('/')
+#             else:
+#                 messages.error(request,'El usuario no existe.')
+#         else:
+#             messages.error(request,'Usuario o contraseña incorrecta.')
+#     else:
+#         form = AuthenticationForm()
+#     return render(request, 'login.html', {'form': form})
 
 @login_required(login_url='/login/')
 def index(request):
@@ -44,7 +54,7 @@ def index(request):
 @login_required(login_url='/login/')
 def detail(request, todo_id):
     todo = get_object_or_404(Todo, pk=todo_id)
-    return render(request, 'detail.html', {'todo':todo})
+    return render(request, 'detail.html', {'todo': todo})
 
 @login_required(login_url='/login/')
 def add_todo(request):
