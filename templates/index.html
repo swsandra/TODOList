@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block staticfiles %}
+{{ block.super }}
+
+<!-- ===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "index/vendor/bootstrap/css/bootstrap.min.css" %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "index/fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "index/vendor/animate/animate.css" %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "index/vendor/select2/select2.min.css" %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "index/vendor/perfect-scrollbar/perfect-scrollbar.css" %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static "index/css/util.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "index/css/main.css" %}">
+<!--=============================================================================================== -->
+{% endblock %}
+
+
+{% block content %}
+
+<div class="limiter">
+    <div class="container-login100" style="background-image: url( '{%static "login/images/bg-01.jpg" %}' );">
+    <div class="wrap-table100">
+        <div class="table100 ver2 m-b-110">
+            <div class="table100-head">
+                <table>
+                    <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Tarea</th>
+                            <th class="cell100 column2">Descripción</th>
+                            <th class="cell100 column3">Fecha de creación</th>
+                            <th class="cell100 column4">Estado</th>
+                            <th class="cell100 column5"></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="table100-body js-pscroll">
+                <table>
+                    <tbody>
+                        <tr class="row100 body">
+                            <td class="cell100 column1">Like a butterfly</td>
+                            <td class="cell100 column2">Boxing</td>
+                            <td class="cell100 column3">9:00 AM - 11:00 AM</td>
+                            <td class="cell100 column4">Aaron Chapman</td>
+                            <td class="cell100 column5">10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+	</div>
+</div>
+
+<!--===============================================================================================-->	
+	<script src="{% static "index/vendor/jquery/jquery-3.2.1.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "index/vendor/bootstrap/js/popper.js" %}"></script>
+	<script src="{% static "index/vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "index/vendor/select2/select2.min.js" %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "index/vendor/perfect-scrollbar/perfect-scrollbar.min.js" %}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+			
+		
+	</script>
+<!--===============================================================================================-->
+    <script src="{% static "index/js/main.js" %}"></script>
+    
+{% endblock %}

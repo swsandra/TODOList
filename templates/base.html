@@ -4,7 +4,8 @@
 <head>
   {% load static %}
 	<title>{% block title %} To-Do App {% endblock %}</title>
-	<meta charset="UTF-8">
+  <meta charset="UTF-8">
+  {% block staticfiles %}
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
   <link rel="icon" type="image/png" href="{% static "login/images/icons/favicon.ico"%}"/>
@@ -28,6 +29,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static "login/css/util.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static "login/css/main.css" %}">
 <!--===============================================================================================-->
+  {% endblock %}
   <style>
     ul {
       list-style-type: none;
@@ -85,10 +87,10 @@
     </li>
     </ul>
   {% endif %}
-	<div class="container-login100" style="background-image: url( '{%static "login/images/bg-01.jpg" %}' );">
+	<!-- <div class="container-login100" style="background-image: url( '{%static "login/images/bg-01.jpg" %}' );"> -->
     {% block content %}
     {% endblock %}
-	</div>
+	<!-- </div> -->
 	<div id="dropDownSelect1"></div>
 <!--===============================================================================================-->
 <script src="{%static "login/vendor/jquery/jquery-3.2.1.min.js" %}"></script>
