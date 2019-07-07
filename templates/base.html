@@ -67,10 +67,10 @@
 <body>
   <ul>      
   {% if user.is_authenticated %}
-    <li><a class="active" href="/"> Home </a></li>
+    <li><a class="active" href="{% url 'index' %}"> Home </a></li>
     <li><a href="{% url 'add' %}">Agregar tarea</a></li>
     <li style="float:right"><a href="{% url 'logout' %}">Cerrar sesión</a></li>
-    <li style="float:right"><a href="/"> {{ user.username }} </a></li>
+    <li style="float:right"><a href="{% url 'index' %}"> {{ user.username }} </a></li>
   {% else %}
     <li style="float:right"><a href="{% url 'login' %}">Iniciar sesión</a></li>
     <li style="float:right"><a href="{% url 'signup' %}">Registrarse</a></li>
