@@ -7,7 +7,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #fff;
+  background-color: #3d0849;
 }
 
 li {
@@ -18,7 +18,7 @@ li a {
   display: block;
   font-family: SourceSansPro-Bold;
   font-size: 20px;
-  color: #4b2354;
+  color: #fff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -30,6 +30,7 @@ li a:hover {
 }
 
 .active {
+  color: #fff;
   background-color: #4b2354;
 }
 
@@ -70,10 +71,10 @@ li a:hover {
     <li><a class="active" href="/"> Home </a></li>
     <li><a href="/add">Agregar tarea</a></li>
     <li style="float:right"><a href="/logout">Cerrar sesión</a></li>
-    <li style="float:right"><a href="/"> user.username </a></li>
+    <li style="float:right"><a href="/"> {{ user.username }} </a></li>
   {% else %}
-    <li><a href="/login">Iniciar sesión</a></li>
-    <li><a href="/signup">Registrarse</a></li>
+    <li style="float:right"><a href="/login">Iniciar sesión</a></li>
+    <li style="float:right"><a href="/signup">Registrarse</a></li>
   {% endif %}
   </ul>
 	<div class="container-login100" style="background-image: url( '{%static "login/images/bg-01.jpg" %}' );">
