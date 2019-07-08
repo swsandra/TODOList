@@ -137,7 +137,7 @@ STATICFILES_DIRS = [
 ]
 
 #  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Login
 LOGIN_REDIRECT_URL = 'index'
