@@ -2,7 +2,11 @@
 
 ## Aplicación para manejar una lista de tareas
 
-TODOList es una mini aplicación web para el manejo de una lista de tareas. Está desarrollada en Django 2.1 y tiene las siguientes funcionalidades:
+TODOList es una mini aplicación web para el manejo de una lista de tareas. 
+
+La aplicación actualmente se encuentra en el siguiente [link de acceso](https://todominiapp.herokuapp.com).
+
+Está desarrollada en Django 2.1 y tiene las siguientes funcionalidades:
 
 * Registrar usuarios
 * Iniciar sesión con un usuario
