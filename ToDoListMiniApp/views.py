@@ -52,20 +52,20 @@ def index(request):
     return render(request, 'index.html', context)
 
 @login_required(login_url='/login/')
-def detail(request, todo_id):
-    todo = get_object_or_404(Todo, pk=todo_id)
-    return render(request, 'detail.html', {'todo': todo})
-
-@login_required(login_url='/login/')
-def add_todo(request):
+def add(request):
     if request.method == 'POST':
         form = TodoForm(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')
+        else:
+            for field in form:
+                for error in field.errors:
+                    err = '{}: {}'.format(field.label,error)
+                    messages.error(request,err)
     else:
         form = TodoForm()
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'add.html', {'form': form})
 
 @login_required(login_url='/login/')
 def edit(request, todo_id):
