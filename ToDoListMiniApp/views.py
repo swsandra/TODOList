@@ -51,37 +51,41 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-@login_required(login_url='/login/')
-def add(request):
+def post_todo(request, new=True, instance=None):
     if request.method == 'POST':
-        form = TodoForm(request.POST)
+        if new:
+            form = TodoForm(request.POST)
+        else:
+            form = TodoForm(request.POST, instance=instance)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            return None
+            # return HttpResponseRedirect('/')
         else:
             for field in form:
                 for error in field.errors:
                     err = '{}: {}'.format(field.label,error)
                     messages.error(request,err)
     else:
-        form = TodoForm()
+        if new:
+            form = TodoForm()
+        else:
+            form = TodoForm(instance=instance)
+    return form
+
+@login_required(login_url='/login/')
+def add(request):
+    form = post_todo(request)
+    if form is None:
+        return HttpResponseRedirect('/')
     return render(request, 'add.html', {'form': form})
 
 @login_required(login_url='/login/')
 def edit(request, todo_id):
     todo = get_object_or_404(Todo, pk=todo_id)
-    if request.method == 'POST':
-        form = TodoForm(request.POST, instance=todo)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/')
-        else:
-            for field in form:
-                for error in field.errors:
-                    err = '{}: {}'.format(field.label,error)
-                    messages.error(request,err)
-    else:
-        form = TodoForm(instance=todo)
+    form = post_todo(request, new=False, instance=todo)
+    if form is None:
+        return HttpResponseRedirect('/')
     return render(request, 'edit.html', {'todo': todo, 'form': form})
 
 @login_required(login_url='/login/')
