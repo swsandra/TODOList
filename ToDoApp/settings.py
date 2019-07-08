@@ -26,7 +26,7 @@ SECRET_KEY = '#hv767nkr5h&t4aqm5phib07-lqd%7-t^9r42m+9g6iv*ie9#2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['todominiapp.herokuapp.com']
+ALLOWED_HOSTS = ['todominiapp.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -128,12 +128,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 # Extra lookup directories for collectstatic to find static files
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 #  Add configuration for static files storage using whitenoise
