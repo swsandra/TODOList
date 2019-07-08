@@ -40,10 +40,15 @@
                     </thead>
                 </table>
             </div>
-
+            
             <div class="table100-body js-pscroll">
                 <table>
                     <tbody>
+                        <tr class="row100 body">    
+                            <td class="cell100 column1">
+                                <a href="{% url 'add' %}" class="login100-form-btn">Agregar Tarea</a>
+                            </td>
+                        </tr>        
                         {% for todo in todo_list %}
                         <tr class="row100 body">    
                             <td class="cell100 column1">{{todo.title}}</td>

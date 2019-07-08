@@ -70,7 +70,6 @@
   <ul>      
   {% if user.is_authenticated %}
     <li><a class="active" href="{% url 'index' %}"> Home </a></li>
-    <li><a href="{% url 'add' %}">Agregar tarea</a></li>
     <li style="float:right"><a href="{% url 'logout' %}">Cerrar sesión</a></li>
     <li style="float:right"><a href="{% url 'index' %}"> {{ user.username }} </a></li>
   {% else %}
