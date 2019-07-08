@@ -7,23 +7,28 @@
         <form class="login100-form validate-form" method="post">
             {% csrf_token %}
             <span class="login100-form-title p-b-37">
-                Tarea Nueva
+                Editar Tarea
             </span>
     
             <div class="wrap-input100 validate-input m-b-20" data-validate="Introduzca un título">
-                <input class="input100" type="text" id="title" name="title" placeholder="título">
+                <input class="input100" type="text" id="title" name="title" placeholder="título" value={{todo.title}}>
                 <span class="focus-input100"></span>
             </div>
     
             <div class="wrap-input100 m-b-25">
-                <input class="input100" type="textarea" id="description" name="description" placeholder="descripción">
+                <input class="input100" type="textarea" id="description" name="description" placeholder="descripción" value={{todo.description}}>
                 <span class="focus-input100"></span>
             </div>
             
             <div class="wrap-input100 m-b-20">
                 <select name="status" class="custom-select">
+                    {% if todo.status %}
+                    <option value="1">Completada</option>
+                    <option value="0">Pendiente</option>
+                    {% else %}
                     <option value="0">Pendiente</option>
                     <option value="1">Completada</option>
+                    {% endif %}
                 </select>
             </div>
     
