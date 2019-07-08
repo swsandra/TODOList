@@ -25,24 +25,6 @@ def sign_up(request):
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
-# def login(request):
-#     if request.method == 'POST':
-#         form = AuthenticationForm(request.POST)
-#         if form.is_valid():
-#             username = form.cleaned_data.get('username')
-#             password = form.cleaned_data.get('password')
-#             user = authenticate(username=username, password=password)
-#             if user is not None:
-#                 login(request, user)
-#                 return HttpResponseRedirect('/')
-#             else:
-#                 messages.error(request,'El usuario no existe.')
-#         else:
-#             messages.error(request,'Usuario o contraseña incorrecta.')
-#     else:
-#         form = AuthenticationForm()
-#     return render(request, 'login.html', {'form': form})
-
 @login_required(login_url='/login/')
 def index(request):
     todo_list = Todo.objects.order_by('id')
